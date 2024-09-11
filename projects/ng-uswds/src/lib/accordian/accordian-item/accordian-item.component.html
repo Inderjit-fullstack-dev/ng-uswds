@@ -1,0 +1,13 @@
+<div class="usa-accordion__wrapper">
+    <h4 class="usa-accordion__heading">
+        <button type="button" class="usa-accordion__button"
+            [ngClass]="{ 'usa-accordion__button__disable__outline': !isOutlined }" [attr.aria-expanded]="show"
+            [attr.aria-controls]="id" (click)="onHeadingClick(id)">
+            {{ heading }}
+        </button>
+    </h4>
+
+    <div [id]="id" class="usa-accordion__content usa-prose" *ngIf="show">
+        <ng-content></ng-content>
+    </div>
+</div>

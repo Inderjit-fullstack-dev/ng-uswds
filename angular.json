@@ -3,5 +3,127 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "ng-uswds": {
+      "projectType": "library",
+      "root": "projects/ng-uswds",
+      "sourceRoot": "projects/ng-uswds/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-uswds/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-uswds/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-uswds/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ng-uswds/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        }
+      }
+    },
+    "uswds-examples": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
+      "root": "projects/uswds-examples",
+      "sourceRoot": "projects/uswds-examples/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/uswds-examples",
+            "index": "projects/uswds-examples/src/index.html",
+            "browser": "projects/uswds-examples/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "projects/uswds-examples/tsconfig.app.json",
+            "assets": [
+              "projects/uswds-examples/src/favicon.ico",
+              "projects/uswds-examples/src/assets"
+            ],
+            "styles": [
+              "node_modules/uswds/dist/css/uswds.min.css",
+              "projects/uswds-examples/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "uswds-examples:build:production"
+            },
+            "development": {
+              "buildTarget": "uswds-examples:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "uswds-examples:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "projects/uswds-examples/tsconfig.spec.json",
+            "assets": [
+              "projects/uswds-examples/src/favicon.ico",
+              "projects/uswds-examples/src/assets"
+            ],
+            "styles": ["projects/uswds-examples/src/styles.css"],
+            "scripts": []
+          }
+        }
+      }
+    }
   }
 }

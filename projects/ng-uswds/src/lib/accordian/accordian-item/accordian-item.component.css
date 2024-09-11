@@ -1,0 +1,10 @@
+.usa-accordion__wrapper {
+  margin-bottom: 7px;
+}
+
+/* outline is disabled, we have to disable the button outline */
+.usa-accordion__button:not(
+    [disabled]
+  ):focus.usa-accordion__button__disable__outline {
+  outline: none !important;
+}
