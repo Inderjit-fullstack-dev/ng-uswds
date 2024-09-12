@@ -1,3 +1,5 @@
+<h1>Accordian Demo</h1>
+
 <accordian [isBordered]="true" [isMultiSelectable]="true" [isOutlined]="true">
   <accordian-item heading="First Amendment">
     <p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or
@@ -11,3 +13,46 @@
     </p>
   </accordian-item>
 </accordian>
+
+
+<h1> Alert Demo </h1>
+
+<alert heading="Success status" headingLevel="h1" type="success">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+</alert>
+
+<br />
+
+<alert heading="Warning status" headingLevel="h2" type="warning">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+</alert>
+
+<br />
+
+<alert heading="Error status" headingLevel="h6" type="error">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+</alert>
+
+<br />
+
+<alert heading="Info status" headingLevel="h6" type="info">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+</alert>
+
+<br />
+
+<alert heading="Emergency status" headingLevel="h6" type="emergency">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+  <ul>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Lorem ipsum dolor sit amet</li>
+  </ul>
+</alert>
+
+<br />
+
+<alert headingLevel="h6" type="info" [slim]="true" [hideIcon]="true">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+</alert>
