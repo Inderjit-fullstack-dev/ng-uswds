@@ -1,6 +1,6 @@
 <h1>Accordian Demo</h1>
 
-<accordian [isBordered]="true" [isMultiSelectable]="true" [isOutlined]="true">
+<accordian [isBordered]="true" [isMultiSelectable]="true" [isOutlined]="false" [isAnimated]="true">
   <accordian-item heading="First Amendment">
     <p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or
       abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to
@@ -12,9 +12,22 @@
       bear Arms, shall not be infringed.
     </p>
   </accordian-item>
+
+  <accordian-item heading="custom heading">
+    <ul>
+      <li><a href="#">Hellow</a></li>
+      <li><a href="#">Hellow</a></li>
+      <li><a href="#">Hellow</a></li>
+      <li><a href="#">Hellow</a></li>
+    </ul>
+  </accordian-item>
 </accordian>
 
+<alert headingLevel="h1" type="emergency" [slim]="true" [hideIcon]="true">
+  Please check all the errors
+</alert>
 
+<!-- 
 <h1> Alert Demo </h1>
 
 <alert heading="Success status" headingLevel="h1" type="success">
@@ -55,4 +68,15 @@
 
 <alert headingLevel="h6" type="info" [slim]="true" [hideIcon]="true">
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
-</alert>
+</alert> -->
+
+<br />
+
+<div>
+  <ng-button (click)="btnClicked()" type="submit" [isBlocked]="true">Click me </ng-button>
+</div> <br />
+<ng-button (click)="btnClicked()" type="submit">Click me </ng-button>
+<ng-button (click)="btnClicked()" type="submit" variant="accent-cool">Click me </ng-button>
+<ng-button (click)="btnClicked()" type="submit" variant="accent-warm">Click me </ng-button>
+<ng-button (click)="btnClicked()" type="submit" variant="base">Click me </ng-button>
+<ng-button (click)="btnClicked()" type="submit" [disabled]="true">Click me </ng-button>

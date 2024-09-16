@@ -23,6 +23,8 @@ export class AlertComponent implements AfterViewInit {
 
   @ViewChild('dynamicHeading', { static: true }) dynamicHeading!: ElementRef;
 
+  public alertClass: string = '';
+
   constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit(): void {
@@ -59,6 +61,4 @@ export class AlertComponent implements AfterViewInit {
 
     return [baseClass, additionalClasses].filter(Boolean).join(' ');
   }
-
-  public alertClass: string = '';
 }
