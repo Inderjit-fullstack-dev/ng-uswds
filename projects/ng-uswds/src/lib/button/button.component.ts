@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
 import { ButtonVariant } from '../core/types/button-variants';
 
 @Component({
@@ -7,6 +7,9 @@ import { ButtonVariant } from '../core/types/button-variants';
   styleUrls: ['./button.component.css'],
 })
 export class ButtonComponent {
+  @ViewChild('buttonTemplate', { read: TemplateRef })
+  buttonTemplate!: TemplateRef<any>;
+
   @Input() type: string = 'button';
   @Input() variant: ButtonVariant = 'default';
   @Input() disabled: boolean = false;
@@ -14,6 +17,10 @@ export class ButtonComponent {
   @Input() isUnstyled: boolean = false;
   @Input() isBlocked: boolean = false;
   @Input() size: 'big' | 'normal' = 'normal';
+
+  get nativeElement(): HTMLElement {
+    return this.buttonTemplate.elementRef.nativeElement;
+  }
 
   get btnClasses(): string {
     return this.computeButtonClasses();

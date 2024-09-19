@@ -4,3 +4,4 @@ export * from './lib/core/types';
 export * from './lib/accordian';
 export * from './lib/alert';
 export * from './lib/button';
+export * from './lib/button-group';
