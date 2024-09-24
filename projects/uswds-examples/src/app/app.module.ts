@@ -8,6 +8,7 @@ import {
   AlertModule,
   ButtonGroupModule,
   ButtonModule,
+  CardModule,
 } from 'ng-uswds';
 
 @NgModule({
@@ -19,6 +20,7 @@ import {
     AlertModule,
     ButtonModule,
     ButtonGroupModule,
+    CardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
